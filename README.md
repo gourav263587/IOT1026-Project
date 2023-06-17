@@ -12,7 +12,7 @@
 </p>
 
 # IOT1026-Project
-description of task 1: the custom room class created is the custom room as instructed in the assignment and it is registered in roomtype as new customroom every time if called. when activated it shows a prompt to the hero about the mystery box inside it. various condition of the hero having a sword or not is written
+description of task 1: the custom room class created is the custom room as instructed in the assignment and it is registered in roomtype as new customroom every time if called. when activated it shows a prompt to the hero about the mystery box inside it. various condition of the hero having a sword or not is written in if else conditions. the poisonous gas can kill the hero and conditions are implemented accordingly. it also gives hero caution about the dangers of the room if he is close to roo
 
 [Assignment Instructions](docs/instructions.md)  
 [How to start coding](docs/how-to-use.md)  
