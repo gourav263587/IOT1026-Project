@@ -1,4 +1,4 @@
-﻿namespace MinotaurLabyrinth
+namespace MinotaurLabyrinth
 {
     /// <summary>
     /// A static class that provides methods to generate random locations and other procedural generation-related functionality.
@@ -25,6 +25,7 @@
             // Will hold all the possible locations
             _locations = new HashSet<Location>(numRows * numCols);
             // Will hold only the used locations
+          
             _usedLocations = new HashSet<Location>(numRows * numCols);
 
             foreach (int row in rowPositions)
@@ -78,7 +79,7 @@
         {
             Location loc = new(row, col);
             // Verify the location not off map in the event 'walls' are added
-            if (map.GetRoomTypeAtLocation(loc) != RoomType.Wall)
+            if (map.GetRoomTypeAtLocation(loc) != RoomType.Wall && map.GetRoomTypeAtLocation(loc) != RoomType.CustomRoom)
             {
                 locations.Add(loc);
             }
@@ -164,6 +165,6 @@
         public CreatorException(int totalRooms, int usedRooms)
             : base("Not enough rooms remaining in the labyrinth!\n" +
                    $"Total rooms: {totalRooms}, Used rooms: {usedRooms}")
-        { }
-    }
+        { }
+    }
 }
