@@ -1,4 +1,4 @@
-﻿namespace MinotaurLabyrinth
+namespace MinotaurLabyrinth
 {
     /// <summary>
     /// A static class that provides methods to create and initialize a labyrinth map with various features, such as an entrance, sword, traps, and monsters.
@@ -84,7 +84,15 @@
             int numRooms = map.Rows * map.Columns * multiplier / ScalingFactor;
             for (int i = 0; i < numRooms; ++i)
             {
-                map.SetRoomAtLocation(ProceduralGenerator.GetRandomLocation(), roomType);
+                if (roomType == RoomType.CustomRoom)
+                {
+                    var location = ProceduralGenerator.GetRandomLocation();
+                    map.SetRoomAtLocation(location, roomType);
+                }
+                else
+                {
+                    map.SetRoomAtLocation(ProceduralGenerator.GetRandomLocation(), roomType);
+                }
             }
         }
 
@@ -105,9 +113,9 @@
         private static void InitializeMonsters(Map map)
         {
             // Ensure monster locations do not overlap existing locations on the map
-            Location minotaurLocation = ProceduralGenerator.GetRandomLocation();
-            Room room = map.GetRoomAtLocation(minotaurLocation);
-            room.AddMonster(new Minotaur());
-        }
-    }
+            Location monsterLocation = ProceduralGenerator.GetRandomLocation();
+            Room room = map.GetRoomAtLocation(monsterLocation);
+            room.AddMonster(new CustomSecondMonster());
+        }
+    }
 }
